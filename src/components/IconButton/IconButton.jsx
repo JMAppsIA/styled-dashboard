@@ -1,11 +1,11 @@
 import React from 'react'
-import { Button } from '../../styled-components/IconButton'
+import { ButtonContainer, Button } from '../../styled-components/IconButton'
 
-const IconButton = ({isIcon, children, backgroundColor, buttonWidth, buttonHeight, image, hasNotifications, notifications, ...props}) => {
+const IconButton = ({isLeft, isRight, children, ...props}) => {
   return (
-    <Button {...props} {...{buttonWidth}} {...{buttonHeight}} {...{backgroundColor}} {...{isIcon}}>
-        {children}
-    </Button>
+    <ButtonContainer {...{isLeft}} {...{isRight}}>
+      {children}
+    </ButtonContainer>
   );
 }
 

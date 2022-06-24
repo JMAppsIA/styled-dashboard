@@ -69,6 +69,17 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  overflow: hidden;
+`;
+
+export const ContentWrapper = styled.div`
+display: flex;
+    flex-direction: column;
+    color: var(--theme-color);
+    padding: 20px 40px;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--theme-bg-color);
 `;
 
 export const Footer = styled.div`

@@ -7,7 +7,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCloud } from "@fortawesome/free-solid-svg-icons";
 import IconButton from "../IconButton/IconButton";
-import { IconNotificationBadge, IconContainer } from "../../styled-components/IconButton";
+import { IconNotificationBadge } from "../../styled-components/IconButton";
+import Avatar from "../Avatar/Avatar";
+import avatarIcon from '../../assets/images/avatar.avif'
 
 const Navbar = () => {
   return (
@@ -16,39 +18,28 @@ const Navbar = () => {
         <h1>Your Logo</h1>
       </NavLeftSide>
       <NavRightSide>
-        <IconButton
-          noSize
-          hasNotifications
-          notifications={3}
-          backgroundColor={`#EAECF2`}
-        >
-          <IconContainer>
+        <IconButton>
+          <IconNotificationBadge>{3}</IconNotificationBadge>
           <FontAwesomeIcon
             icon={faBell}
             color={"#435971"}
-            size={`2x`}
+            size={`xl`}
             style={{position: 'relative'}}
           >
           </FontAwesomeIcon>
-          <IconNotificationBadge/>
-          </IconContainer>
         </IconButton>
         <IconButton
-          noSize
-          hasNotifications
-          notifications={3}
-          backgroundColor={`#EAECF2`}
-          style={{marginLeft: 16}}
+          isRight
         >
-          <IconContainer>
-            <FontAwesomeIcon
-              icon={faCloud}
-              color={"#435971"}
-              size={`2x`}
-              style={{position: 'relative'}}
-            />
-          </IconContainer>
+          <FontAwesomeIcon
+            icon={faCloud}
+            color={"#435971"}
+            size={`xl`}
+            style={{position: 'relative'}}
+          >
+          </FontAwesomeIcon>
         </IconButton>
+        <Avatar source={avatarIcon} name={`Erza Miller`}/>
       </NavRightSide>
     </NavbarContainer>
   );
