@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../utilities";
 
 export const SideHeader = styled.div`
 border-bottom: 1px solid var(--border-color);
@@ -29,6 +30,9 @@ export const SideFooter = styled.div`
   display: flex;
   justify-content: center;
   border-top: 1px solid var(--border-color);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 `;
 
 export const SideWrapper = styled.div`

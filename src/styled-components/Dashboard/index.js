@@ -69,17 +69,21 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  overflow: hidden;
+  overflow: auto;
+  scroll-behavior: smooth;
 `;
 
 export const ContentWrapper = styled.div`
-display: flex;
+    display: flex;
     flex-direction: column;
     color: var(--theme-color);
     padding: 20px 40px;
     height: 100%;
+    /* background-color: var(--theme-bg-color); */
+    max-height: 860px;
     overflow: auto;
-    background-color: var(--theme-bg-color);
+    scroll-behavior: smooth;
+
 `;
 
 export const Footer = styled.div`

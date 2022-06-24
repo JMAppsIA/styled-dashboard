@@ -9,6 +9,7 @@
   body {
     font-family: "Poppins", regular;
     background-color: #F8F8F8;
+    overflow: hidden;
   }
 
   :root {

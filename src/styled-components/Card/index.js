@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const CardContainer = styled.div`
+  display: flex;
+  flex-direction: ${(props) => props.align};
+  width: 100%;
+  margin-top: 20;
+`;
+
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -10,23 +17,30 @@ export const CardWrapper = styled.div`
   padding: 20px 40px;
   height: auto;
   width: 100%;
+  height: 100%;
   overflow: hidden;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png"),
-    linear-gradient(
-      to right top,
-      #cf4af3,
-      #e73bd7,
-      #f631bc,
-      #fd31a2,
-      #ff3a8b,
-      #ff4b78,
-      #ff5e68,
-      #ff705c,
-      #ff8c51,
-      #ffaa49,
-      #ffc848,
-      #ffe652
-    );
+  ${({hasBackgroundColor, hasBackgroundImage,imageBg, colorBg, linearGradient}) => {
+    switch(true) {
+      case hasBackgroundColor: {
+        return {
+          backgroundColor: colorBg
+        };
+      }
+      case hasBackgroundImage: {
+        return {
+          backgroundImage: `url(${imageBg}), 
+            linear-gradient(
+              to right top,
+              ${linearGradient}
+            )
+          `,
+        }
+      }
+      default: {
+        return null
+      }
+    }
+  }}
   @media screen and (max-width: 510px) {
     padding: 20px;
   }
@@ -37,7 +51,25 @@ export const CardContent = styled.div`
   width: 100%;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px 40px;
+  
+  ${({hasPadding, centerContent}) => {
+    switch(true) {
+      case hasPadding: {
+        return {
+          padding: '20px 40px'
+        };
+      }
+      case centerContent: {
+        return {
+          alignItems: 'center',
+  alignContent: 'center'
+        };
+      }
+      default: {
+        return null;
+      }
+    }
+  }}
   @media screen and (max-width: 415px) {
     padding: 20px;
   }
@@ -72,7 +104,7 @@ export const CardButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #3a6df0;
+  background-color: var(--primary-bg);
   border: none;
   padding: 8px 26px;
   color: #fff;
@@ -97,12 +129,13 @@ export const CardImage = styled.img`
 export const CardDetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: calc(33.3% - 20px);
+  width: calc(100% - 20px);
   font-size: 16px;
   background-color: var(--content-bg);
   border-radius: 14px;
   border: 1px solid var(--theme-bg-color);
   padding: 20px;
+  margin: 10px;
   cursor: pointer;
   transition: 0.3s ease;
   &:hover {
@@ -122,8 +155,8 @@ export const CardDetailWrapper = styled.div`
   @media screen and (max-width: 1110px) {
     width: calc(50% - 20px);
     &:last-child {
-      margin-top: 20px;
-      margin-left: 0px;
+      /* margin-top: 20px; */
+      /* margin-left: 0px; */
     }
   }
   @media screen and (max-width: 565px) {

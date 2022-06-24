@@ -11,35 +11,34 @@ import {
   CardDetailWrapper,
   CardImage,
   CardTitle,
-  CardWrapper,
+  CardWrapper
 } from "../../styled-components/Card";
 
-const Card = ({ type }) => {
+const Card = ({ type, hasBackgroundImage, hasBackgroundColor, colorBg, imageBg, linearGradient, hasPadding, centerContent, title, description, buttonLabel, icon, hasImage, image, hideButton }) => {
   return type === "info" ? (
-    <CardWrapper>
-      <CardContent>
+    <CardWrapper {...{hasBackgroundImage}} {...{hasBackgroundColor}} {...{colorBg}} {...{imageBg}} {...{linearGradient}}>
+      <CardContent {...{hasPadding}} {...{centerContent}}>
         <CardTitle>
-          <FontAwesomeIcon icon={faChartPie} />
-          {`Your Stats`}
+          <FontAwesomeIcon icon={icon} />
+          {title}
         </CardTitle>
-        <CardDescription>{`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, quaerat ducimus. Voluptas delectus voluptate error minima fugiat maiores quia beatae. Aliquid quam nulla ratione expedita cumque error maiores, provident a!`}</CardDescription>
-        <CardButton>{`Start Free`}</CardButton>
+        <CardDescription>{description}</CardDescription>
+        {!hideButton && <CardButton>{buttonLabel}</CardButton>}
       </CardContent>
-      <CardImage
-        class="content-wrapper-img"
-        src="https://assets.codepen.io/3364143/glass.png"
+     { hasImage && <CardImage
+        src={image}
         alt=""
-      />
+      />}
     </CardWrapper>
   ) : (
     <CardDetailWrapper>
       <CardTitle>
-        <FontAwesomeIcon icon={faChartPie} />
-        {`Your Stats`}
+        <FontAwesomeIcon icon={icon} />
+        {title}
       </CardTitle>
-      <CardDescriptionWrapper>{`Edit, master and create fully proffesional videos`}</CardDescriptionWrapper>
+      <CardDescriptionWrapper>{description}</CardDescriptionWrapper>
       <CardDescriptionButtons>
-        <CardButton>{`Start Free`}</CardButton>
+        <CardButton>{buttonLabel}</CardButton>
         <CardButtonMenu />
       </CardDescriptionButtons>
     </CardDetailWrapper>
