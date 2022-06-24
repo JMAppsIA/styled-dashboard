@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Poppins", regular;
+    background-color: #F8F8F8;
+  }
+
+  :root {
+    --theme-bg-color: rgba(16 18 27 / 40%);
+    --border-color: rgba(113 119 144 / 25%);
+    --theme-color: #f9fafb;
+    --inactive-color: rgb(113 119 144 / 78%);
+    --body-font: "Poppins", sans-serif;
+    --primary-bg: #696CFF;
+    --hover-menu-bg: #696CFF;
+    --menu-title-color: #A1ACB8;
+    --menu-title-secondary-color: #000;
+    --content-title-color: #999ba5;
+    --content-bg: rgb(146 151 179 / 13%);
+    --button-inactive: rgb(249 250 251 / 55%);
+    --dropdown-bg: #21242d;
+    --dropdown-hover: rgb(42 46 60);
+    --popup-bg: rgb(22 25 37);
+    --search-bg:  #14162b;
+    --overlay-bg: rgba(36, 39, 59, 0.3);
+    --scrollbar-bg: rgb(1 2 3 / 40%);
+    --danger: #FA3F3F;
+    --item-link-color: #697A8D;
+    --side-bar-bg: #FFF;
+    --white: '#FFF';
+   }
+  
+  /* ::-webkit-scrollbar {
+    background-color: black;
+    width: 0.4vw;
+  }
+   */
+  /* ::-webkit-scrollbar-thumb {
+    background: #212121;
+  } */
+  
+  /* .show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    right: 0 !important;
+  } */
