@@ -13,6 +13,8 @@ import {
   CardTitle,
   CardWrapper
 } from "../../styled-components/Card";
+import { Text } from "../../styled-components/Text";
+import { Colors } from "../../utilities";
 
 const Card = ({ type, hasBackgroundImage, hasBackgroundColor, colorBg, imageBg, linearGradient, hasPadding, centerContent, title, description, buttonLabel, icon, hasImage, image, hideButton }) => {
   return type === "info" ? (
@@ -33,10 +35,10 @@ const Card = ({ type, hasBackgroundImage, hasBackgroundColor, colorBg, imageBg, 
   ) : (
     <CardDetailWrapper>
       <CardTitle>
-        <FontAwesomeIcon icon={icon} />
-        {title}
+        <FontAwesomeIcon icon={icon} color={Colors.primary}/>
+        <Text regular color={Colors.grey0}>{title}</Text>
       </CardTitle>
-      <CardDescriptionWrapper>{description}</CardDescriptionWrapper>
+      <CardDescriptionWrapper><Text light color={Colors.grey1}>{description}</Text></CardDescriptionWrapper>
       <CardDescriptionButtons>
         <CardButton>{buttonLabel}</CardButton>
         <CardButtonMenu />

@@ -71,6 +71,8 @@ export const MainContainer = styled.div`
   flex-grow: 1;
   overflow: auto;
   scroll-behavior: smooth;
+  height: 100%;
+  background-color: var(--dashboard-bg);
 `;
 
 export const ContentWrapper = styled.div`
@@ -83,6 +85,7 @@ export const ContentWrapper = styled.div`
     max-height: 860px;
     overflow: auto;
     scroll-behavior: smooth;
+    width: 100%;
 
 `;
 
@@ -115,4 +118,22 @@ export const Footer = styled.div`
         border-bottom: 2px solid var(--theme-color);
       }
     } */
+`;
+
+export const LeftSection = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex: ${(props) => props.flexSize || 1};
+    padding: 2px;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const RightSection = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex: ${(props) => props.flexSize || 4};
+    padding: 24px;
+    align-items: center;
+    justify-content: center;
 `;

@@ -2,7 +2,14 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
   display: flex;
-  flex-direction: ${(props) => props.align};
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20;
+`;
+
+export const CardSection = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 100%;
   margin-top: 20;
 `;
@@ -76,8 +83,6 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  font-weight: 500;
-  font-size: 17px;
   display: flex;
   align-items: center;
   margin: 0;
@@ -131,7 +136,7 @@ export const CardDetailWrapper = styled.div`
   flex-direction: column;
   width: calc(100% - 20px);
   font-size: 16px;
-  background-color: var(--content-bg);
+  background-color: var(--side-bar-bg);
   border-radius: 14px;
   border: 1px solid var(--theme-bg-color);
   padding: 20px;
@@ -169,9 +174,6 @@ export const CardDetailWrapper = styled.div`
 `;
 
 export const CardDescriptionWrapper = styled.div`
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.6em;
   margin-top: 20px;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 20px;

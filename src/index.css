@@ -19,6 +19,11 @@
     --inactive-color: rgb(113 119 144 / 78%);
     --body-font: "Poppins", sans-serif;
     --primary-bg: #696CFF;
+    --secondary-bg: #696CFF;
+    --regular-bg: #03C3EC;
+    --success: #71DD37;
+    --warning: #FFAB00;
+    --danger: #FF3E1D;
     --hover-menu-bg: #696CFF;
     --menu-title-color: #A1ACB8;
     --menu-title-secondary-color: #000;
@@ -34,7 +39,8 @@
     --danger: #FA3F3F;
     --item-link-color: #697A8D;
     --side-bar-bg: #FFF;
-    --white: '#FFF';
+    --white: #FFF;
+    --dashboard-bg: '#F5F5F9';
    }
   
   /* ::-webkit-scrollbar {

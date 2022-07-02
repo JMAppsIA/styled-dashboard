@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Colors, Fonts} from "../../utilities";
+import { Colors, Fonts } from "../../utilities";
 
 export const Text = styled.span`
   /* default black */
@@ -8,10 +8,10 @@ export const Text = styled.span`
   font-size: ${(props) => props.size || 16}px;
   /* default left */
   text-align: ${(props) => props.align || "left"};
-  ${({uppercase}) => {
-    switch(true) {
+  ${({ uppercase }) => {
+    switch (true) {
       case uppercase: {
-        return { textTransform: 'uppercase'}
+        return { textTransform: "uppercase" };
       }
       default: {
         return ``;
@@ -123,72 +123,71 @@ export const Text = styled.span`
       }
     }
   }}
-  ${({ hero, title1, title2, title3, body, button, header, logo, item}) => {
+  ${({ hero, title1, title2, title3, body, button, header, logo, item }) => {
     switch (true) {
       case hero: {
         return {
-          fontWeight: '',
+          fontWeight: "",
           fontSize: `80px`,
           lineHeight: `80px`,
         };
       }
       case title1: {
         return {
-          fontWeight: '',
+          fontWeight: "",
           fontSize: `28px`,
-
         };
       }
       case title2: {
         return {
-          fontWeight: '',
+          fontWeight: "",
           fontSize: `${24}px`,
-          lineHeight: `${24+6}px`,
+          lineHeight: `${24 + 6}px`,
         };
       }
       case title3: {
         return {
-          fontWeight: '',
+          fontWeight: "",
           fontSize: `${16}px`,
         };
       }
       case body: {
         return {
-          fontWeight: '',
+          fontWeight: "",
           fontSize: `${16}px`,
-          lineHeight: `${16+8}px`
+          lineHeight: `${16 + 8}px`,
         };
       }
       case button: {
         return {
-          fontWeight: '',
+          fontWeight: "",
           fontSize: `${15}px`,
         };
       }
       case header: {
         return {
-          fontWeight: '',
+          fontWeight: "",
           fontSize: `${12}px`,
-          lineHeight: `${12*2}px`,
+          lineHeight: `${12 * 2}px`,
         };
       }
       case logo: {
         return {
           fontWeight: 800,
           fontSize: 24,
-          lineHeight: 29
+          lineHeight: 29,
         };
       }
       case item: {
         return {
           fonteight: 400,
           fontSize: 18,
-          lineHeight: 21
-        }
+          lineHeight: 21,
+        };
       }
       default: {
         return ``;
       }
     }
-  }}
+  }};
 `;

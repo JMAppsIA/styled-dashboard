@@ -1,27 +1,23 @@
-import { faChartPie } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faArrowUp, faChartPie, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "./components/Card/Card";
 import Navbar from "./components/NavBar/Navbar";
 import Sidebar from "./components/SideBar/Sidebar";
-import {
-  CardButton,
-  CardContainer,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardImage,
-  CardTitle,
-  CardWrapper,
-} from "./styled-components/Card";
+import { CardContainer, CardSection } from "./styled-components/Card";
+import { ChartContainer } from "./styled-components/Chart";
 import {
   DashboardContainer,
   Header,
   LeftSide,
   MainContainer,
   Wrapper,
-  Footer,
   ContentWrapper,
 } from "./styled-components/Dashboard";
+import transactionIcon from "./assets/icons/transactions-icon.svg";
+import ChartWidget from "./components/ChartWidget/ChartWidget";
+import { Text } from "./styled-components/Text";
+import { Colors } from "./utilities";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 
 function App() {
   return (
@@ -62,15 +58,7 @@ function App() {
               />
             </CardContainer>
             <CardContainer align={`column`}>
-              <h1
-                style={{
-                  color: "var(--white)",
-                  marginBottom: 14,
-                }}
-              >
-                Your content
-              </h1>
-              <CardContainer align={`row`}>
+              <CardSection align={`row`}>
                 <Card
                   title={`Your Stats`}
                   icon={faChartPie}
@@ -83,74 +71,76 @@ function App() {
                   description={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, quaerat ducimus. Voluptas delectus voluptate error minima fugiat maiores quia beatae. Aliquid quam nulla ratione expedita cumque error maiores, provident a!`}
                   buttonLabel={`Start Free`}
                 />
-                <Card 
+                <Card
                   title={`Your Stats`}
                   icon={faChartPie}
                   description={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, quaerat ducimus. Voluptas delectus voluptate error minima fugiat maiores quia beatae. Aliquid quam nulla ratione expedita cumque error maiores, provident a!`}
                   buttonLabel={`Start Free`}
                 />
-              </CardContainer>
+              </CardSection>
             </CardContainer>
-            <CardContainer align={`column`}>
-              <h1
-                style={{
-                  color: "var(--white)",
-                  marginBottom: 14,
-                }}
-              >
-                Your content
-              </h1>
-              <CardContainer align={`row`}>
-                <Card
-                  title={`Your Stats`}
-                  icon={faChartPie}
-                  description={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, quaerat ducimus. Voluptas delectus voluptate error minima fugiat maiores quia beatae. Aliquid quam nulla ratione expedita cumque error maiores, provident a!`}
-                  buttonLabel={`Start Free`}
-                />
-                <Card
-                  title={`Your Stats`}
-                  icon={faChartPie}
-                  description={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, quaerat ducimus. Voluptas delectus voluptate error minima fugiat maiores quia beatae. Aliquid quam nulla ratione expedita cumque error maiores, provident a!`}
-                  buttonLabel={`Start Free`}
-                />
-                <Card 
-                  title={`Your Stats`}
-                  icon={faChartPie}
-                  description={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, quaerat ducimus. Voluptas delectus voluptate error minima fugiat maiores quia beatae. Aliquid quam nulla ratione expedita cumque error maiores, provident a!`}
-                  buttonLabel={`Start Free`}
-                />
-              </CardContainer>
-            </CardContainer>
-            <CardContainer align={`column`}>
-              <h1
-                style={{
-                  color: "var(--white)",
-                  marginBottom: 14,
-                }}
-              >
-                Your content
-              </h1>
-              <CardContainer align={`row`}>
-                <Card
-                  title={`Your Stats`}
-                  icon={faChartPie}
-                  description={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, quaerat ducimus. Voluptas delectus voluptate error minima fugiat maiores quia beatae. Aliquid quam nulla ratione expedita cumque error maiores, provident a!`}
-                  buttonLabel={`Start Free`}
-                />
-                <Card
-                  title={`Your Stats`}
-                  icon={faChartPie}
-                  description={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, quaerat ducimus. Voluptas delectus voluptate error minima fugiat maiores quia beatae. Aliquid quam nulla ratione expedita cumque error maiores, provident a!`}
-                  buttonLabel={`Start Free`}
-                />
-                <Card 
-                  title={`Your Stats`}
-                  icon={faChartPie}
-                  description={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, quaerat ducimus. Voluptas delectus voluptate error minima fugiat maiores quia beatae. Aliquid quam nulla ratione expedita cumque error maiores, provident a!`}
-                  buttonLabel={`Start Free`}
-                />
-              </CardContainer>
-            </CardContainer>
+            <ChartContainer>
+              <ChartWidget
+                title={`Order`}
+                description={`$ 1,286`}
+                hasIcon
+                isCustomIcon
+                icon={transactionIcon}
+                width={42}
+                height={42}
+                footerContent={
+                  <Text semi style={{ display: "flex", alignItems: "center" }}>
+                    <FontAwesomeIcon icon={faArrowDown} color={"#FF3E1D"} />
+                    <Text semi color={`#FF3E1D`}>
+                      -13.24%
+                    </Text>
+                  </Text>
+                }
+              />
+              <ChartWidget
+                title={`Sales`}
+                icon={transactionIcon}
+                width={42}
+                height={42}
+                description={`482K`}
+                hasBadge
+                badgeSize={`sm`}
+                badgeText={`+34%`}
+                badgeType={`regular`}
+                textType={Colors.blue900}
+                footerContent={
+                  <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <Text size={13} color={Colors.grey0}>{`Sales Target`}</Text>
+                    <ProgressBar done={78} size={`sm`} color={Colors.primary} hasInnerText textSize={12} textColor={Colors.white}/>
+                  </div>
+                }
+              />
+              <ChartWidget
+                title={`Order`}
+                description={`$ 1,286`}
+                hasIcon
+                isCustomIcon
+                icon={transactionIcon}
+                width={42}
+                height={42}
+                footerContent={
+                  <Text semi style={{ display: "flex", alignItems: "center" }}>
+                    <FontAwesomeIcon icon={faArrowUp} color={Colors.success} />
+                    <Text semi color={Colors.success}>
+                      +3.24%
+                    </Text>
+                  </Text>
+                }
+              />
+              <ChartWidget
+                title={`Order`}
+                description={`$ 1,286`}
+                icon={transactionIcon}
+                width={42}
+                height={42}
+                footerContent={``}
+              />
+            </ChartContainer>
           </ContentWrapper>
         </MainContainer>
       </Wrapper>
