@@ -1,10 +1,14 @@
-import { faArrowDown, faArrowUp, faChartPie, faCreditCard } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowDown,
+  faArrowUp,
+  faChartPie,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "./components/Card/Card";
 import Navbar from "./components/NavBar/Navbar";
 import Sidebar from "./components/SideBar/Sidebar";
 import { CardContainer, CardSection } from "./styled-components/Card";
-import { ChartContainer } from "./styled-components/Chart";
+import { WidgetContainer } from "./styled-components/Widget";
 import {
   DashboardContainer,
   Header,
@@ -18,6 +22,8 @@ import ChartWidget from "./components/ChartWidget/ChartWidget";
 import { Text } from "./styled-components/Text";
 import { Colors } from "./utilities";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
+import Charts from "./components/Charts/Charts";
+import { ChartContainer } from "./styled-components/Chart";
 
 function App() {
   return (
@@ -79,68 +85,92 @@ function App() {
                 />
               </CardSection>
             </CardContainer>
-            <ChartContainer>
-              <ChartWidget
-                title={`Order`}
-                description={`$ 1,286`}
-                hasIcon
-                isCustomIcon
-                icon={transactionIcon}
-                width={42}
-                height={42}
-                footerContent={
-                  <Text semi style={{ display: "flex", alignItems: "center" }}>
-                    <FontAwesomeIcon icon={faArrowDown} color={"#FF3E1D"} />
-                    <Text semi color={`#FF3E1D`}>
-                      -13.24%
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+              <WidgetContainer>
+                <ChartWidget
+                  title={`Order`}
+                  description={`$ 1,286`}
+                  hasIcon
+                  isCustomIcon
+                  icon={transactionIcon}
+                  width={42}
+                  height={42}
+                  footerContent={
+                    <Text
+                      semi
+                      style={{ display: "flex", alignItems: "center" }}
+                    >
+                      <FontAwesomeIcon icon={faArrowDown} color={"#FF3E1D"} />
+                      <Text semi color={`#FF3E1D`}>
+                        -13.24%
+                      </Text>
                     </Text>
-                  </Text>
-                }
-              />
-              <ChartWidget
-                title={`Sales`}
-                icon={transactionIcon}
-                width={42}
-                height={42}
-                description={`482K`}
-                hasBadge
-                badgeSize={`sm`}
-                badgeText={`+34%`}
-                badgeType={`regular`}
-                textType={Colors.blue900}
-                footerContent={
-                  <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <Text size={13} color={Colors.grey0}>{`Sales Target`}</Text>
-                    <ProgressBar done={78} size={`sm`} color={Colors.primary} hasInnerText textSize={12} textColor={Colors.white}/>
-                  </div>
-                }
-              />
-              <ChartWidget
-                title={`Order`}
-                description={`$ 1,286`}
-                hasIcon
-                isCustomIcon
-                icon={transactionIcon}
-                width={42}
-                height={42}
-                footerContent={
-                  <Text semi style={{ display: "flex", alignItems: "center" }}>
-                    <FontAwesomeIcon icon={faArrowUp} color={Colors.success} />
-                    <Text semi color={Colors.success}>
-                      +3.24%
+                  }
+                />
+                <ChartWidget
+                  title={`Sales`}
+                  icon={transactionIcon}
+                  width={42}
+                  height={42}
+                  description={`482K`}
+                  hasBadge
+                  badgeSize={`sm`}
+                  badgeText={`+34%`}
+                  badgeType={`regular`}
+                  textType={Colors.blue900}
+                  footerContent={
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <Text
+                        size={13}
+                        color={Colors.grey0}
+                      >{`Sales Target`}</Text>
+                      <ProgressBar
+                        done={78}
+                        size={`sm`}
+                        color={Colors.primary}
+                        hasInnerText
+                        textSize={12}
+                        textColor={Colors.white}
+                      />
+                    </div>
+                  }
+                />
+                <ChartWidget
+                  title={`Order`}
+                  description={`$ 1,286`}
+                  hasIcon
+                  isCustomIcon
+                  icon={transactionIcon}
+                  width={42}
+                  height={42}
+                  footerContent={
+                    <Text
+                      semi
+                      style={{ display: "flex", alignItems: "center" }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faArrowUp}
+                        color={Colors.success}
+                      />
+                      <Text semi color={Colors.success}>
+                        +3.24%
+                      </Text>
                     </Text>
-                  </Text>
-                }
-              />
-              <ChartWidget
-                title={`Order`}
-                description={`$ 1,286`}
-                icon={transactionIcon}
-                width={42}
-                height={42}
-                footerContent={``}
-              />
-            </ChartContainer>
+                  }
+                />
+                <ChartWidget
+                  title={`Order`}
+                  description={`$ 1,286`}
+                  icon={transactionIcon}
+                  width={42}
+                  height={42}
+                  footerContent={``}
+                />
+              </WidgetContainer>
+              <ChartContainer>
+                <Charts type={"donut"} />
+              </ChartContainer>
+            </div>
           </ContentWrapper>
         </MainContainer>
       </Wrapper>
